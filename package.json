@@ -5,13 +5,23 @@
   "main": "models.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start:dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rymoore411/acme-users-api-weekend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rymoore411/acme-users-api-weekend/issues"
+  },
+  "homepage": "https://github.com/rymoore411/acme-users-api-weekend#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "pg": "^7.11.0",
-    "sequelize": "^5.9.0"
+    "sequelize": "^5.9.3"
   }
 }

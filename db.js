@@ -27,6 +27,7 @@ const Department = conn.define('department', {
     allowNull: false,
     validate: {
       notEmpty: true
+
     }
   },
 
@@ -47,13 +48,19 @@ const syncAndSeed = async ()=> {
   try{
   await conn.sync({ force: true});
   const departments = ['HR', 'Engineering', 'Sales'];
-  const [hr, engineering, sales] = await Promise.all(departments.map(dept => Department.create({dept})));
+  await Promise.all(departments.map(dept => Department.create({name: dept})));
   const users = ['Ryan', 'Jason', 'Matt'];
-  const [ryan, jason, matt] = await Promise.all(users.map(user => User.create({user})));
+  await Promise.all(users.map(user => User.create({name: user})));
   }
   catch(err){
     console.log(err);
   }
 }
 
-syncAndSeed();
+module.exports = {
+  syncAndSeed,
+  models: {
+    Department,
+    User
+  }
+}
